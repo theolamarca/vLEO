@@ -244,8 +244,6 @@
               name="PC 1" abstractType="#4b9ebdea-632e-4fc6-9007-9f309650b232"/>
           <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="ed6f993b-b51d-4411-9971-90c4d85c2973"
               name="PC 2" abstractType="#08798d8c-265b-4124-bce6-64948850f938"/>
-          <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="edbf7a4a-9257-4b4e-9c73-944af013697f"
-              name="PC 4" abstractType="#d23cfc46-39e8-44e7-9a80-c8d2c32b5ecd"/>
           <ownedComponentRealizations xsi:type="org.polarsys.capella.core.data.cs:ComponentRealization"
               id="ee816f21-ad61-4b4c-b31d-abbd356b4e0c" targetElement="#5db418d1-23d0-4522-a0c1-308ad3cbb067"
               sourceElement="#6a18b6b3-c402-4090-ac72-f4c4a9c67706"/>
@@ -258,8 +256,6 @@
           </ownedPhysicalComponents>
           <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
               id="08798d8c-265b-4124-bce6-64948850f938" name="PC 2" nature="NODE"/>
-          <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
-              id="d23cfc46-39e8-44e7-9a80-c8d2c32b5ecd" name="PC 4" nature="NODE"/>
         </ownedPhysicalComponents>
       </ownedPhysicalComponentPkg>
       <ownedLogicalArchitectureRealizations xsi:type="org.polarsys.capella.core.data.pa:LogicalArchitectureRealization"
