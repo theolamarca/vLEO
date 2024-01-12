@@ -248,12 +248,7 @@
               id="ee816f21-ad61-4b4c-b31d-abbd356b4e0c" targetElement="#5db418d1-23d0-4522-a0c1-308ad3cbb067"
               sourceElement="#6a18b6b3-c402-4090-ac72-f4c4a9c67706"/>
           <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
-              id="4b9ebdea-632e-4fc6-9007-9f309650b232" name="PC 1" nature="NODE">
-            <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="24d05b91-896c-4cab-9031-51a482547285"
-                name="PC 3" abstractType="#30d9e6bb-536b-4dbd-aece-d81c7489333b"/>
-            <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
-                id="30d9e6bb-536b-4dbd-aece-d81c7489333b" name="PC 3" nature="NODE"/>
-          </ownedPhysicalComponents>
+              id="4b9ebdea-632e-4fc6-9007-9f309650b232" name="PC 1" nature="NODE"/>
           <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
               id="08798d8c-265b-4124-bce6-64948850f938" name="PC 2" nature="NODE"/>
         </ownedPhysicalComponents>
