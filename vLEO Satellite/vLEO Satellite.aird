@@ -8,7 +8,7 @@
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" uid="_HM8JYIeDEe6ZFJ35CDhVew">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/physical.odesign#//@ownedViewpoints[name='Physical%20Architecture']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Kr7_0IeDEe6ZFJ35CDhVew" name="[PCBD] Structure" repPath="#_Kr6KoIeDEe6ZFJ35CDhVew" changeId="1705065516492">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Kr7_0IeDEe6ZFJ35CDhVew" name="[PCBD] Structure" repPath="#_Kr6KoIeDEe6ZFJ35CDhVew" changeId="1705065998448">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/physical.odesign#//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Component%20Breakdown']"/>
         <target xmi:type="org.polarsys.capella.core.data.pa:PhysicalComponentPkg" href="vLEO%20Satellite.capella#f80a0216-43cd-451a-9def-2b3c8ca2252f"/>
       </ownedRepresentationDescriptors>
@@ -74,7 +74,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_F8yl8rFNEe6oMO6ORG_HIw"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_F8xX0bFNEe6oMO6ORG_HIw" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_F8xX0rFNEe6oMO6ORG_HIw" x="390" y="130" width="70" height="70"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_F8xX0rFNEe6oMO6ORG_HIw" x="420" y="210" width="70" height="70"/>
         </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_KsKpUoeDEe6ZFJ35CDhVew"/>
         <edges xmi:type="notation:Edge" xmi:id="_LY_6IIeDEe6ZFJ35CDhVew" type="4001" element="_LY5McYeDEe6ZFJ35CDhVew" source="_LY7osIeDEe6ZFJ35CDhVew" target="_KsbvEIeDEe6ZFJ35CDhVew">
@@ -111,17 +111,17 @@
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_F8zNALFNEe6oMO6ORG_HIw" type="4001" element="_F8rRNrFNEe6oMO6ORG_HIw" source="_F8xX0LFNEe6oMO6ORG_HIw" target="_KsbvEIeDEe6ZFJ35CDhVew">
           <children xmi:type="notation:Node" xmi:id="_F8z0ELFNEe6oMO6ORG_HIw" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_F8z0EbFNEe6oMO6ORG_HIw" y="-10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_F8z0EbFNEe6oMO6ORG_HIw" x="55" y="-10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_F8z0ErFNEe6oMO6ORG_HIw" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_F8z0E7FNEe6oMO6ORG_HIw" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_F8z0E7FNEe6oMO6ORG_HIw" x="26" y="-77"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_F8z0FLFNEe6oMO6ORG_HIw" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_F8z0FbFNEe6oMO6ORG_HIw" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_F8z0FbFNEe6oMO6ORG_HIw" x="16" y="10"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_F8zNAbFNEe6oMO6ORG_HIw" routing="Tree" jumpLinkStatus="Above" jumpLinkType="Tunnel"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_F8zNArFNEe6oMO6ORG_HIw" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_F8zNA7FNEe6oMO6ORG_HIw" points="[-35, -10, 345, 90]$[-345, -91, 35, 9]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_F8zNA7FNEe6oMO6ORG_HIw" points="[0, -35, 410, 145]$[0, -129, 410, 51]$[-410, -129, 0, 51]$[-410, -145, 0, 35]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_F80bILFNEe6oMO6ORG_HIw" id="(0.5,0.5)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_F80bIbFNEe6oMO6ORG_HIw" id="(0.5,0.5)"/>
         </edges>
@@ -157,6 +157,9 @@
     <ownedDiagramElements xmi:type="diagram:DNode" uid="_F8pcArFNEe6oMO6ORG_HIw" name="PC 3" outgoingEdges="_F8rRNrFNEe6oMO6ORG_HIw" width="7" height="7" resizeKind="NSEW">
       <target xmi:type="org.polarsys.capella.core.data.pa:PhysicalComponent" href="vLEO%20Satellite.capella#432bac83-88fb-464e-a60a-b49dc63e8d2e"/>
       <semanticElements xmi:type="org.polarsys.capella.core.data.pa:PhysicalComponent" href="vLEO%20Satellite.capella#432bac83-88fb-464e-a60a-b49dc63e8d2e"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
       <ownedStyle xmi:type="diagram:Square" uid="_F8qDELFNEe6oMO6ORG_HIw" borderSize="1" borderSizeComputationExpression="1" borderColor="123,105,79" labelPosition="node" color="255,252,183">
         <description xmi:type="style:SquareDescription" href="platform:/plugin/org.polarsys.capella.core.sirius.analysis/description/physical.odesign#//@ownedViewpoints[name='Physical%20Architecture']/@ownedRepresentations[name='Physical%20Component%20Breakdown']/@defaultLayer/@nodeMappings[name='PCB_PhysicalComponent']/@conditionnalStyles.6/@style"/>
       </ownedStyle>
