@@ -262,26 +262,27 @@
               name="PC 1" abstractType="#4b9ebdea-632e-4fc6-9007-9f309650b232"/>
           <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="ed6f993b-b51d-4411-9971-90c4d85c2973"
               name="PC 2" abstractType="#08798d8c-265b-4124-bce6-64948850f938"/>
-          <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="3e4c94d2-7649-4a79-beee-bbb5308380a6"
-              name="PC 3" abstractType="#432bac83-88fb-464e-a60a-b49dc63e8d2e"/>
           <ownedComponentRealizations xsi:type="org.polarsys.capella.core.data.cs:ComponentRealization"
               id="ee816f21-ad61-4b4c-b31d-abbd356b4e0c" targetElement="#5db418d1-23d0-4522-a0c1-308ad3cbb067"
               sourceElement="#6a18b6b3-c402-4090-ac72-f4c4a9c67706"/>
           <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
-              id="4b9ebdea-632e-4fc6-9007-9f309650b232" name="PC 1" nature="NODE"/>
+              id="4b9ebdea-632e-4fc6-9007-9f309650b232" name="PC 1" nature="NODE">
+            <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="3e4c94d2-7649-4a79-beee-bbb5308380a6"
+                name="PC 3" abstractType="#432bac83-88fb-464e-a60a-b49dc63e8d2e"/>
+            <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
+                id="432bac83-88fb-464e-a60a-b49dc63e8d2e" appliedPropertyValueGroups="#2c914262-963d-4570-bd76-ff56e17f498a"
+                name="PC 3" nature="NODE">
+              <ownedPropertyValueGroups xsi:type="org.polarsys.capella.core.data.capellacore:PropertyValueGroup"
+                  id="2c914262-963d-4570-bd76-ff56e17f498a" name="Mass.MassExtension"
+                  appliedPropertyValueGroups="#2e3f5951-b3f0-4a50-83cd-80b9e4f7bd5e">
+                <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:FloatPropertyValue"
+                    id="811d1533-d016-49b2-a924-d700a9f4a7db" name="Mass" appliedPropertyValues="#14c54444-fde8-481f-a49b-2f1cd3db772c"
+                    value="12.0"/>
+              </ownedPropertyValueGroups>
+            </ownedPhysicalComponents>
+          </ownedPhysicalComponents>
           <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
               id="08798d8c-265b-4124-bce6-64948850f938" name="PC 2" nature="NODE"/>
-          <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
-              id="432bac83-88fb-464e-a60a-b49dc63e8d2e" appliedPropertyValueGroups="#2c914262-963d-4570-bd76-ff56e17f498a"
-              name="PC 3" nature="NODE">
-            <ownedPropertyValueGroups xsi:type="org.polarsys.capella.core.data.capellacore:PropertyValueGroup"
-                id="2c914262-963d-4570-bd76-ff56e17f498a" name="Mass.MassExtension"
-                appliedPropertyValueGroups="#2e3f5951-b3f0-4a50-83cd-80b9e4f7bd5e">
-              <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:FloatPropertyValue"
-                  id="811d1533-d016-49b2-a924-d700a9f4a7db" name="Mass" appliedPropertyValues="#14c54444-fde8-481f-a49b-2f1cd3db772c"
-                  value="15.0"/>
-            </ownedPropertyValueGroups>
-          </ownedPhysicalComponents>
         </ownedPhysicalComponents>
       </ownedPhysicalComponentPkg>
       <ownedLogicalArchitectureRealizations xsi:type="org.polarsys.capella.core.data.pa:LogicalArchitectureRealization"
