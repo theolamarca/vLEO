@@ -13,9 +13,11 @@
     xmlns:org.polarsys.capella.core.data.information="http://www.polarsys.org/capella/core/information/6.0.0"
     xmlns:org.polarsys.capella.core.data.information.datatype="http://www.polarsys.org/capella/core/information/datatype/6.0.0"
     xmlns:org.polarsys.capella.core.data.information.datavalue="http://www.polarsys.org/capella/core/information/datavalue/6.0.0"
+    xmlns:org.polarsys.capella.core.data.interaction="http://www.polarsys.org/capella/core/interaction/6.0.0"
     xmlns:org.polarsys.capella.core.data.la="http://www.polarsys.org/capella/core/la/6.0.0"
     xmlns:org.polarsys.capella.core.data.oa="http://www.polarsys.org/capella/core/oa/6.0.0"
     xmlns:org.polarsys.capella.core.data.pa="http://www.polarsys.org/capella/core/pa/6.0.0"
+    xmlns:org.polarsys.capella.core.data.pa.deployment="http://www.polarsys.org/capella/core/pa/deployment/6.0.0"
     id="495a5ba5-163b-4fe7-b0f6-36e48b99d6ff"
     name="vLEO Satellite">
   <ownedExtensions xsi:type="libraries:ModelInformation" id="ccde793b-22cd-4dd9-8574-a67280917b1e"/>
@@ -47,7 +49,28 @@
             id="14c54444-fde8-481f-a49b-2f1cd3db772c" sid="_nuYsoLFXEe6I5YCxNglPlA"
             name="Mass" description="" value="1.0">
           <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:StringPropertyValue"
-              id="9283f07c-923d-4700-a6b4-6782f70a669e" name="__UNIT__" value="kg"/>
+              id="a2fa7165-6920-4493-ac0c-9049bad8ef1b" name="__UNIT__" value="kg"/>
+        </ownedPropertyValues>
+      </ownedPropertyValueGroups>
+    </ownedPropertyValuePkgs>
+    <ownedPropertyValuePkgs xsi:type="org.polarsys.capella.core.data.capellacore:PropertyValuePkg"
+        id="cdcf9f27-e80e-42a1-9271-cb3ecb999fb4" sid="_4F88wL9UEe6N6Z7qZOKCyg" name="Power">
+      <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:StringPropertyValue"
+          id="dd55256a-d8e4-4e6e-b07a-0f15dbcbed7d" name="version" value="1.0.0"/>
+      <ownedPropertyValueGroups xsi:type="org.polarsys.capella.core.data.capellacore:PropertyValueGroup"
+          id="175e7649-847c-4cba-ace9-f76f7cb413d4" sid="_6rxvgL9UEe6N6Z7qZOKCyg"
+          name="PowerExtension" description="[CLASS]http://www.polarsys.org/capella/core/cs/6.0.0/Component[/CLASS]&#xA;[ARCHITECTURE]PHYSICAL[/ARCHITECTURE]">
+        <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:FloatPropertyValue"
+            id="c6e579ca-ef68-4d9e-91d7-b02ab431aab8" sid="_J3K7oL9VEe6N6Z7qZOKCyg"
+            name="Capacity" description="" value="1.0">
+          <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:StringPropertyValue"
+              id="b2fb44e4-af5e-4b75-9997-1e2678ffc9ad" name="__UNIT__" value="Wh"/>
+        </ownedPropertyValues>
+        <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:FloatPropertyValue"
+            id="e06a96af-69a5-4ea2-aa03-fe43796161a8" sid="_FZDKgL9VEe6N6Z7qZOKCyg"
+            name="AOP" description="" value="1.0">
+          <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:StringPropertyValue"
+              id="d7b0354d-121a-4b69-ab23-a3b6384f96aa" name="__UNIT__" value="W"/>
         </ownedPropertyValues>
       </ownedPropertyValueGroups>
     </ownedPropertyValuePkgs>
@@ -241,13 +264,86 @@
           id="16359377-9a91-47fa-a3b6-3091a9239a5b" name="Physical Functions">
         <ownedPhysicalFunctions xsi:type="org.polarsys.capella.core.data.pa:PhysicalFunction"
             id="be1e2665-7ee0-40df-9409-946c3d910d7b" name="Root Physical Function">
+          <ownedFunctions xsi:type="org.polarsys.capella.core.data.pa:PhysicalFunction"
+              id="cb2337d7-012c-4f68-951f-074d04259ab9" name="Store chemical power">
+            <outputs xsi:type="org.polarsys.capella.core.data.fa:FunctionOutputPort"
+                id="3500a010-a034-40eb-912a-140c5be69a51" name="FOP 1"/>
+          </ownedFunctions>
+          <ownedFunctions xsi:type="org.polarsys.capella.core.data.pa:PhysicalFunction"
+              id="f6134e43-2d10-457b-91a7-0972ca1f42c2" name="Condition power to PL needs">
+            <inputs xsi:type="org.polarsys.capella.core.data.fa:FunctionInputPort"
+                id="952e27e8-a797-4658-973a-917b47e89117" name="FIP 1"/>
+          </ownedFunctions>
           <ownedFunctionRealizations xsi:type="org.polarsys.capella.core.data.fa:FunctionRealization"
               id="5aec1722-2068-4e11-94ce-112538f66384" targetElement="#a3455580-532a-49c7-8c07-e0cb3cf06f3a"
               sourceElement="#be1e2665-7ee0-40df-9409-946c3d910d7b"/>
+          <ownedFunctionalExchanges xsi:type="org.polarsys.capella.core.data.fa:FunctionalExchange"
+              id="8ede1c21-2f94-4c9d-bdd9-55bed4c18cdc" name="Unregulated Power" target="#952e27e8-a797-4658-973a-917b47e89117"
+              source="#3500a010-a034-40eb-912a-140c5be69a51"/>
         </ownedPhysicalFunctions>
       </ownedFunctionPkg>
       <ownedAbstractCapabilityPkg xsi:type="org.polarsys.capella.core.data.la:CapabilityRealizationPkg"
-          id="17395b81-7f41-4447-b973-0b8a6e1ff2a5" name="Capabilities"/>
+          id="17395b81-7f41-4447-b973-0b8a6e1ff2a5" name="Capabilities">
+        <ownedCapabilityRealizations xsi:type="org.polarsys.capella.core.data.la:CapabilityRealization"
+            id="1d342430-790c-48e2-9cd0-33cfd4b0041a" name="CapabilityRealization 1">
+          <ownedScenarios xsi:type="org.polarsys.capella.core.data.interaction:Scenario"
+              id="738aab1d-b5d4-48f7-9ad4-591a93e84b76" name="[ES] CapabilityRealization 1"
+              kind="DATA_FLOW">
+            <ownedInstanceRoles xsi:type="org.polarsys.capella.core.data.interaction:InstanceRole"
+                id="f3e8b2a2-20a6-4e79-b3d6-e4ca0696b58b" name="Batteries" representedInstance="#1026f496-a594-428c-b2d5-f8b771062ece"/>
+            <ownedInstanceRoles xsi:type="org.polarsys.capella.core.data.interaction:InstanceRole"
+                id="321dbe92-bd68-43cd-b295-3826d53c4ba8" name="PLPC" representedInstance="#bbdf7044-822a-434e-a557-dd7b1b750caa"/>
+            <ownedMessages xsi:type="org.polarsys.capella.core.data.interaction:SequenceMessage"
+                id="71fc218a-aa2a-4b3f-bf10-f218b5c92624" name="Unregulated Power"
+                kind="ASYNCHRONOUS_CALL" sendingEnd="#bacd3efb-a3db-424b-ac11-b323abc8098f"
+                receivingEnd="#a3b8adc7-cf2d-432c-84e9-79a43babc615"/>
+            <ownedInteractionFragments xsi:type="org.polarsys.capella.core.data.interaction:InteractionState"
+                id="58780769-7113-4a5f-ac3c-04a87d86447d" name="Store chemical power"
+                coveredInstanceRoles="#f3e8b2a2-20a6-4e79-b3d6-e4ca0696b58b" relatedAbstractFunction="#cb2337d7-012c-4f68-951f-074d04259ab9"/>
+            <ownedInteractionFragments xsi:type="org.polarsys.capella.core.data.interaction:InteractionState"
+                id="d51ce94f-0e18-485c-a6f3-be5ddc8c0a86" name="Store chemical power"
+                coveredInstanceRoles="#f3e8b2a2-20a6-4e79-b3d6-e4ca0696b58b" relatedAbstractFunction="#cb2337d7-012c-4f68-951f-074d04259ab9"/>
+            <ownedInteractionFragments xsi:type="org.polarsys.capella.core.data.interaction:MessageEnd"
+                id="bacd3efb-a3db-424b-ac11-b323abc8098f" name="Send Call Message Call"
+                coveredInstanceRoles="#f3e8b2a2-20a6-4e79-b3d6-e4ca0696b58b" event="#8931ddfe-1001-4951-8513-a1bb6eebc9fc"/>
+            <ownedInteractionFragments xsi:type="org.polarsys.capella.core.data.interaction:MessageEnd"
+                id="a3b8adc7-cf2d-432c-84e9-79a43babc615" name="Receive Call Message Call"
+                coveredInstanceRoles="#321dbe92-bd68-43cd-b295-3826d53c4ba8" event="#e6c27726-925a-414c-a5b4-eb56ea6b8371"/>
+            <ownedInteractionFragments xsi:type="org.polarsys.capella.core.data.interaction:InteractionState"
+                id="9b88816a-275d-4a0f-be25-10b954d589f1" name="Condition power to PL needs"
+                coveredInstanceRoles="#321dbe92-bd68-43cd-b295-3826d53c4ba8" relatedAbstractFunction="#f6134e43-2d10-457b-91a7-0972ca1f42c2"/>
+            <ownedInteractionFragments xsi:type="org.polarsys.capella.core.data.interaction:InteractionState"
+                id="942f2ef3-6495-42ce-85b1-0bfd5acf461a" name="Condition power to PL needs"
+                coveredInstanceRoles="#321dbe92-bd68-43cd-b295-3826d53c4ba8" relatedAbstractFunction="#f6134e43-2d10-457b-91a7-0972ca1f42c2"/>
+            <ownedInteractionFragments xsi:type="org.polarsys.capella.core.data.interaction:ExecutionEnd"
+                id="13f62914-0737-4e06-ae1e-66c423a5f3cd" name="endExec" coveredInstanceRoles="#321dbe92-bd68-43cd-b295-3826d53c4ba8"
+                event="#621dcc87-d709-4d57-a098-c3684c5f0b68"/>
+            <ownedTimeLapses xsi:type="org.polarsys.capella.core.data.interaction:StateFragment"
+                id="81611b65-fa34-481a-b3c3-3cf3cc77646e" start="#58780769-7113-4a5f-ac3c-04a87d86447d"
+                finish="#d51ce94f-0e18-485c-a6f3-be5ddc8c0a86" relatedAbstractFunction="#cb2337d7-012c-4f68-951f-074d04259ab9"/>
+            <ownedTimeLapses xsi:type="org.polarsys.capella.core.data.interaction:StateFragment"
+                id="31d57ee1-2d1d-4846-a598-b5148a3dd858" start="#9b88816a-275d-4a0f-be25-10b954d589f1"
+                finish="#942f2ef3-6495-42ce-85b1-0bfd5acf461a" relatedAbstractFunction="#f6134e43-2d10-457b-91a7-0972ca1f42c2"/>
+            <ownedTimeLapses xsi:type="org.polarsys.capella.core.data.interaction:Execution"
+                id="08061625-118f-4f5d-a420-1d1c2e2c5948" start="#a3b8adc7-cf2d-432c-84e9-79a43babc615"
+                finish="#13f62914-0737-4e06-ae1e-66c423a5f3cd"/>
+            <ownedEvents xsi:type="org.polarsys.capella.core.data.interaction:EventSentOperation"
+                id="8931ddfe-1001-4951-8513-a1bb6eebc9fc" operation="#8ede1c21-2f94-4c9d-bdd9-55bed4c18cdc"/>
+            <ownedEvents xsi:type="org.polarsys.capella.core.data.interaction:EventReceiptOperation"
+                id="e6c27726-925a-414c-a5b4-eb56ea6b8371" operation="#8ede1c21-2f94-4c9d-bdd9-55bed4c18cdc"/>
+            <ownedEvents xsi:type="org.polarsys.capella.core.data.interaction:ExecutionEvent"
+                id="621dcc87-d709-4d57-a098-c3684c5f0b68"/>
+          </ownedScenarios>
+          <ownedCapabilityRealizationInvolvements xsi:type="org.polarsys.capella.core.data.capellacommon:CapabilityRealizationInvolvement"
+              id="162fda24-9bf9-4c0b-b13f-837b3adada9e" involved="#15c4d762-44d4-4658-8a21-c2d73c3562a6"/>
+          <ownedCapabilityRealizationInvolvements xsi:type="org.polarsys.capella.core.data.capellacommon:CapabilityRealizationInvolvement"
+              id="c07d32fe-031f-4dfe-8264-f140b3be9c32" involved="#28926a1e-e3c5-40b9-8953-850383143643"/>
+          <ownedCapabilityRealizationInvolvements xsi:type="org.polarsys.capella.core.data.capellacommon:CapabilityRealizationInvolvement"
+              id="3831a6c5-9620-4dbd-a0d2-205d51cf940e" involved="#81c4cde7-96c0-47b5-93a4-1d5bc4678604"/>
+          <ownedCapabilityRealizationInvolvements xsi:type="org.polarsys.capella.core.data.capellacommon:CapabilityRealizationInvolvement"
+              id="abb9b3f6-2b2b-4a3e-9808-7fc48e2dfdd5" involved="#db42737f-eaed-49ab-9c57-4df020aed6e9"/>
+        </ownedCapabilityRealizations>
+      </ownedAbstractCapabilityPkg>
       <ownedInterfacePkg xsi:type="org.polarsys.capella.core.data.cs:InterfacePkg"
           id="045a8efb-fa15-4785-a817-b7dbb58c4af3" name="Interfaces"/>
       <ownedDataPkg xsi:type="org.polarsys.capella.core.data.information:DataPkg"
@@ -255,34 +351,371 @@
       <ownedPhysicalComponentPkg xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponentPkg"
           id="f80a0216-43cd-451a-9def-2b3c8ca2252f" name="Structure">
         <ownedParts xsi:type="org.polarsys.capella.core.data.cs:Part" id="19c3a9b2-0c8f-42c7-894c-cbb9887d0e78"
-            name="Physical System" abstractType="#6a18b6b3-c402-4090-ac72-f4c4a9c67706"/>
+            name="Physical System - vLEO Satellite" abstractType="#6a18b6b3-c402-4090-ac72-f4c4a9c67706"/>
+        <ownedParts xsi:type="org.polarsys.capella.core.data.cs:Part" id="5f8fac11-a477-4f8a-8c95-8b9a06e2669e"
+            name="vLEO Environment" abstractType="#859c82a7-22f1-414f-a203-8a640d64f171"/>
+        <ownedPhysicalLinks xsi:type="org.polarsys.capella.core.data.cs:PhysicalLink"
+            id="901161ba-2bb9-410c-8778-6a5f05d7c52e" name="P_Solar radiation" linkEnds="#9e28f1ff-abc2-4f48-b3aa-fd45d1f5769f #3a56615f-0637-4c97-800b-a61bba48775d"/>
+        <ownedPhysicalLinks xsi:type="org.polarsys.capella.core.data.cs:PhysicalLink"
+            id="22e9121d-3d7b-4c2a-a170-045131016d97" name="M_Solar pressure" linkEnds="#a19d1666-43b2-41e4-a6f3-221d17556bf5 #64cb9621-1df7-4f74-89c7-3d7249fe46e4"/>
         <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
-            id="6a18b6b3-c402-4090-ac72-f4c4a9c67706" name="Physical System">
-          <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="cae8a27b-11a7-433d-985f-3fdb16c964b7"
-              name="PC 1" abstractType="#4b9ebdea-632e-4fc6-9007-9f309650b232"/>
-          <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="ed6f993b-b51d-4411-9971-90c4d85c2973"
-              name="PC 2" abstractType="#08798d8c-265b-4124-bce6-64948850f938"/>
+            id="6a18b6b3-c402-4090-ac72-f4c4a9c67706" appliedPropertyValueGroups="#9cff5dc6-36df-442a-bcd5-bbaa2ea81b70 #12674226-b691-4752-ad69-f3dccdf687c2"
+            name="Physical System - vLEO Satellite">
+          <ownedPropertyValueGroups xsi:type="org.polarsys.capella.core.data.capellacore:PropertyValueGroup"
+              id="9cff5dc6-36df-442a-bcd5-bbaa2ea81b70" name="Mass.MassExtension"
+              appliedPropertyValueGroups="#2e3f5951-b3f0-4a50-83cd-80b9e4f7bd5e">
+            <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:FloatPropertyValue"
+                id="895a7b32-e473-4a21-8fc4-72b5b23ef11f" name="Mass" appliedPropertyValues="#14c54444-fde8-481f-a49b-2f1cd3db772c"
+                value="1.0"/>
+          </ownedPropertyValueGroups>
+          <ownedPropertyValueGroups xsi:type="org.polarsys.capella.core.data.capellacore:PropertyValueGroup"
+              id="12674226-b691-4752-ad69-f3dccdf687c2" name="Power.PowerExtension"
+              appliedPropertyValueGroups="#175e7649-847c-4cba-ace9-f76f7cb413d4">
+            <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:FloatPropertyValue"
+                id="d1717edd-cfa3-4705-a58d-9daa7b9ff75a" name="Capacity" appliedPropertyValues="#c6e579ca-ef68-4d9e-91d7-b02ab431aab8"
+                value="1.0"/>
+            <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:FloatPropertyValue"
+                id="41b1cc82-c8ac-4a38-8e4d-553a12769170" name="AOP" appliedPropertyValues="#e06a96af-69a5-4ea2-aa03-fe43796161a8"
+                value="1.0"/>
+          </ownedPropertyValueGroups>
+          <ownedComponentExchanges xsi:type="org.polarsys.capella.core.data.fa:ComponentExchange"
+              id="1b49ebe1-505e-427f-a94b-8c20f1635d73" name="P_EPS_BATT-PL_PPC" source="#11aff098-fd24-4cc0-8a4f-fa108815d108"
+              target="#add56209-b195-427d-bfb4-522ef5d825bd" kind="FLOW"/>
+          <ownedComponentExchangeCategories xsi:type="org.polarsys.capella.core.data.fa:ComponentExchangeCategory"
+              id="39569b09-dc3e-4e71-a903-d22d3b33bcc8" name="Power"/>
+          <ownedComponentExchangeCategories xsi:type="org.polarsys.capella.core.data.fa:ComponentExchangeCategory"
+              id="1bdfeb9a-738a-4979-8aaf-d80f67275239" name="Data"/>
+          <ownedComponentExchangeCategories xsi:type="org.polarsys.capella.core.data.fa:ComponentExchangeCategory"
+              id="835f558a-20cc-44bd-b60f-d06c6514bbe3" name="RF"/>
+          <ownedComponentExchangeCategories xsi:type="org.polarsys.capella.core.data.fa:ComponentExchangeCategory"
+              id="8c72557b-d4f3-40cc-b538-fe5f036acd26" name="Mechanical"/>
+          <ownedComponentExchangeCategories xsi:type="org.polarsys.capella.core.data.fa:ComponentExchangeCategory"
+              id="bcbe5af3-c1f0-40eb-bb75-c0f875a2df0f" name="Other"/>
+          <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="5d69404b-1bda-4043-8931-8df20d4f4075"
+              name="EPS" abstractType="#eede21b7-e831-4562-ac48-2be204af8679"/>
+          <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="ee0d6896-e2ac-4ad5-a6d4-936b14049f82"
+              name="Electrical BUS" abstractType="#fed9de7d-629d-4eab-ab68-b38e7cb74494"/>
+          <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="ae84a81a-9551-47a2-aaab-5328485ddac7"
+              name="Power storage" abstractType="#0cc29f9c-d9c9-440b-a22e-9bfa7490ce08"/>
+          <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="0ac02e5d-7b48-4a96-8199-50e707627233"
+              name="Power conditioning" abstractType="#0d5ba57e-dca9-4ec7-9bca-c0410c6aedfe"/>
+          <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="7935455b-ba96-4bdc-974e-3b70c5ad3ed3"
+              name="Power distribution" abstractType="#f5c23405-2800-4e00-a34c-923f4607a9e2"/>
+          <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="6bd76175-f859-4470-9713-523e9e0eddd5"
+              name="Payload" abstractType="#19eb16b0-efed-4ed8-badd-55b440bfe685"/>
+          <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="bc976be3-3d2a-4401-9d16-b927fdd6f014"
+              name="AOCS" abstractType="#59b9fef2-f272-4af7-8284-39e6c3f13b6c"/>
+          <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="e15331a5-3b30-46db-be48-4155508aa3a9"
+              name="Power generation" abstractType="#28926a1e-e3c5-40b9-8953-850383143643"/>
+          <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="4484d46e-2ee9-4b33-bf11-f3acc4e380c8"
+              name="PL Power conditioning" abstractType="#2798b87f-d728-44d1-91f2-42ef1aa0ce4c"/>
           <ownedComponentRealizations xsi:type="org.polarsys.capella.core.data.cs:ComponentRealization"
               id="ee816f21-ad61-4b4c-b31d-abbd356b4e0c" targetElement="#5db418d1-23d0-4522-a0c1-308ad3cbb067"
               sourceElement="#6a18b6b3-c402-4090-ac72-f4c4a9c67706"/>
+          <ownedPhysicalPath xsi:type="org.polarsys.capella.core.data.cs:PhysicalPath"
+              id="f21d6957-4423-47aa-81af-f081541c3062" name="Power to PL">
+            <ownedPhysicalPathInvolvements xsi:type="org.polarsys.capella.core.data.cs:PhysicalPathInvolvement"
+                id="95fde749-bf08-417b-96f1-53f051a4674b" involved="#6bd76175-f859-4470-9713-523e9e0eddd5"
+                nextInvolvements="#e718bb4a-ebd5-430c-b9ea-dd4a99b90898"/>
+            <ownedPhysicalPathInvolvements xsi:type="org.polarsys.capella.core.data.cs:PhysicalPathInvolvement"
+                id="e718bb4a-ebd5-430c-b9ea-dd4a99b90898" involved="#25e2dafa-c13b-45e3-bc8e-81843b6c7afc"
+                nextInvolvements="#eb9fbb1a-454e-485e-915f-6c0a032e679e"/>
+            <ownedPhysicalPathInvolvements xsi:type="org.polarsys.capella.core.data.cs:PhysicalPathInvolvement"
+                id="eb9fbb1a-454e-485e-915f-6c0a032e679e" involved="#ee0d6896-e2ac-4ad5-a6d4-936b14049f82"
+                nextInvolvements="#78f8ba00-9476-4e85-a4f6-b58258fb699c"/>
+            <ownedPhysicalPathInvolvements xsi:type="org.polarsys.capella.core.data.cs:PhysicalPathInvolvement"
+                id="78f8ba00-9476-4e85-a4f6-b58258fb699c" involved="#96be0124-9910-486c-b5f8-7a780c18aabd"
+                nextInvolvements="#d884b05e-24c7-4d05-bbef-787a8e9fab9b"/>
+            <ownedPhysicalPathInvolvements xsi:type="org.polarsys.capella.core.data.cs:PhysicalPathInvolvement"
+                id="d884b05e-24c7-4d05-bbef-787a8e9fab9b" involved="#1026f496-a594-428c-b2d5-f8b771062ece"/>
+          </ownedPhysicalPath>
+          <ownedPhysicalLinks xsi:type="org.polarsys.capella.core.data.cs:PhysicalLink"
+              id="96be0124-9910-486c-b5f8-7a780c18aabd" name="Power_cable" linkEnds="#c29a90a4-6f9e-4418-9ce7-0f699313c057 #f3d63d0e-c224-4cb3-964e-1d657bc1eb94"/>
+          <ownedPhysicalLinks xsi:type="org.polarsys.capella.core.data.cs:PhysicalLink"
+              id="5a482a8b-d3bb-41d1-a45b-73bc2655c05f" name="P_cable" appliedPropertyValues="#056edec5-6e87-4257-adfb-18ba6c56f0aa"
+              linkEnds="#15eed44a-ec30-46ac-b5e8-b496b6170a8c #42f6620d-e72a-45c8-90ad-4757d1162be9">
+            <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:StringPropertyValue"
+                id="056edec5-6e87-4257-adfb-18ba6c56f0aa" name="Type" value="Regulated 28 V"/>
+          </ownedPhysicalLinks>
+          <ownedPhysicalLinks xsi:type="org.polarsys.capella.core.data.cs:PhysicalLink"
+              id="25e2dafa-c13b-45e3-bc8e-81843b6c7afc" name="Power_cable" linkEnds="#c5e921a4-0ebe-4ebd-8910-009974fb3594 #4fd4c348-d484-484d-aa95-66342d6ed5e4"/>
           <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
-              id="4b9ebdea-632e-4fc6-9007-9f309650b232" name="PC 1" nature="NODE">
-            <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="3e4c94d2-7649-4a79-beee-bbb5308380a6"
-                name="PC 3" abstractType="#432bac83-88fb-464e-a60a-b49dc63e8d2e"/>
+              id="eede21b7-e831-4562-ac48-2be204af8679" appliedPropertyValueGroups="#1d9eea18-6129-4b55-8a2b-62abc1c26394 #01f4457e-a036-4ef7-b199-6128986e4c27"
+              name="EPS" nature="NODE">
+            <ownedPropertyValueGroups xsi:type="org.polarsys.capella.core.data.capellacore:PropertyValueGroup"
+                id="1d9eea18-6129-4b55-8a2b-62abc1c26394" name="Mass.MassExtension"
+                appliedPropertyValueGroups="#2e3f5951-b3f0-4a50-83cd-80b9e4f7bd5e">
+              <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:FloatPropertyValue"
+                  id="c8b58448-9ec6-44c6-a959-05523061b1b7" name="Mass" appliedPropertyValues="#14c54444-fde8-481f-a49b-2f1cd3db772c"
+                  value="1.0"/>
+            </ownedPropertyValueGroups>
+            <ownedPropertyValueGroups xsi:type="org.polarsys.capella.core.data.capellacore:PropertyValueGroup"
+                id="01f4457e-a036-4ef7-b199-6128986e4c27" name="Power.PowerExtension"
+                appliedPropertyValueGroups="#175e7649-847c-4cba-ace9-f76f7cb413d4">
+              <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:FloatPropertyValue"
+                  id="95b20d16-ac82-436e-a617-4e92cfe9c052" name="Capacity" appliedPropertyValues="#c6e579ca-ef68-4d9e-91d7-b02ab431aab8"
+                  value="1.0"/>
+              <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:FloatPropertyValue"
+                  id="feff6b6a-ae5f-429a-bfe7-82b353a382f4" name="AOP" appliedPropertyValues="#e06a96af-69a5-4ea2-aa03-fe43796161a8"
+                  value="1.0"/>
+            </ownedPropertyValueGroups>
+            <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="68de55f6-2594-4866-984a-a42f938afef3"
+                name="Solar Arrays" abstractType="#15c4d762-44d4-4658-8a21-c2d73c3562a6">
+              <ownedDeploymentLinks xsi:type="org.polarsys.capella.core.data.pa.deployment:PartDeploymentLink"
+                  id="a7ef3594-8978-4ace-90b2-6edae9787742" deployedElement="#e15331a5-3b30-46db-be48-4155508aa3a9"
+                  location="#68de55f6-2594-4866-984a-a42f938afef3"/>
+            </ownedFeatures>
+            <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="a6398ff9-fa82-418c-886a-1260991449e8"
+                name="PCDU" abstractType="#3097ff1c-f9b4-4222-9c03-b4c5935fe806">
+              <ownedDeploymentLinks xsi:type="org.polarsys.capella.core.data.pa.deployment:PartDeploymentLink"
+                  id="860c1c0b-1c58-42fa-96f5-eab2a36be8d3" deployedElement="#7935455b-ba96-4bdc-974e-3b70c5ad3ed3"
+                  location="#a6398ff9-fa82-418c-886a-1260991449e8"/>
+            </ownedFeatures>
+            <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="1026f496-a594-428c-b2d5-f8b771062ece"
+                name="Batteries" abstractType="#81c4cde7-96c0-47b5-93a4-1d5bc4678604">
+              <ownedDeploymentLinks xsi:type="org.polarsys.capella.core.data.pa.deployment:PartDeploymentLink"
+                  id="264ce635-abd8-4e38-88de-5d0c4845c5ca" deployedElement="#ae84a81a-9551-47a2-aaab-5328485ddac7"
+                  location="#1026f496-a594-428c-b2d5-f8b771062ece"/>
+            </ownedFeatures>
+            <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="a04f3389-3ae6-4d21-b0b5-6c30694f6a38"
+                name="SADM" abstractType="#1d25f4a6-0260-4ecc-b1fc-8046bfa90217"/>
+            <ownedPhysicalLinks xsi:type="org.polarsys.capella.core.data.cs:PhysicalLink"
+                id="2a69884e-d7fc-4552-b808-6c276f415744" name="E_cable" linkEnds="#a5f2bced-fc79-40cd-8e0a-44f867ba8697 #d141e794-62da-4d12-822e-fc7050d3d20b"/>
+            <ownedPhysicalLinks xsi:type="org.polarsys.capella.core.data.cs:PhysicalLink"
+                id="579bc8a9-c095-40e4-820e-c6cd8c41ffab" name="P_cable" linkEnds="#b8b480c8-5c4c-4f35-9ce3-47b6517a5c70 #70629815-9fb9-4361-87bb-330e7eac5020"/>
+            <ownedPhysicalLinks xsi:type="org.polarsys.capella.core.data.cs:PhysicalLink"
+                id="1a0a40ac-4b4f-4c3a-974d-d0eaedc015bd" name="P_cable" linkEnds="#0a39e3ea-d002-4731-83ef-ffd2ba5561c2 #47c3251e-45c0-4d3c-b6da-c0b93ec82f80"/>
+            <ownedPhysicalLinks xsi:type="org.polarsys.capella.core.data.cs:PhysicalLink"
+                id="cb5b233c-1e0a-470b-b1e7-3410712ab107" name="M_shaft" linkEnds="#f705568c-565b-4f31-9980-32af965e11ba #3f92f7be-e061-43e0-8d62-60bd4ecc97bc"/>
             <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
-                id="432bac83-88fb-464e-a60a-b49dc63e8d2e" appliedPropertyValueGroups="#2c914262-963d-4570-bd76-ff56e17f498a"
-                name="PC 3" nature="NODE">
+                id="15c4d762-44d4-4658-8a21-c2d73c3562a6" appliedPropertyValueGroups="#85fed9b8-3379-4c06-b4da-9c91d1d4f9c2 #e87a2369-09a1-4851-afe0-3ecc34aa8fa1"
+                name="Solar Arrays" nature="NODE">
               <ownedPropertyValueGroups xsi:type="org.polarsys.capella.core.data.capellacore:PropertyValueGroup"
-                  id="2c914262-963d-4570-bd76-ff56e17f498a" name="Mass.MassExtension"
+                  id="85fed9b8-3379-4c06-b4da-9c91d1d4f9c2" name="Mass.MassExtension"
                   appliedPropertyValueGroups="#2e3f5951-b3f0-4a50-83cd-80b9e4f7bd5e">
                 <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:FloatPropertyValue"
-                    id="811d1533-d016-49b2-a924-d700a9f4a7db" name="Mass" appliedPropertyValues="#14c54444-fde8-481f-a49b-2f1cd3db772c"
-                    value="12.0"/>
+                    id="afc30d7b-58e6-495c-9fe0-09073c02f496" name="Mass" appliedPropertyValues="#14c54444-fde8-481f-a49b-2f1cd3db772c"
+                    value="1.0"/>
               </ownedPropertyValueGroups>
+              <ownedPropertyValueGroups xsi:type="org.polarsys.capella.core.data.capellacore:PropertyValueGroup"
+                  id="e87a2369-09a1-4851-afe0-3ecc34aa8fa1" name="Power.PowerExtension"
+                  appliedPropertyValueGroups="#175e7649-847c-4cba-ace9-f76f7cb413d4">
+                <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:FloatPropertyValue"
+                    id="78145261-5298-4c6b-9e11-31669a1226fb" name="Capacity" appliedPropertyValues="#c6e579ca-ef68-4d9e-91d7-b02ab431aab8"
+                    value="1.0"/>
+                <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:FloatPropertyValue"
+                    id="a6235359-56ea-4856-a74c-86dd54f5b265" name="AOP" appliedPropertyValues="#e06a96af-69a5-4ea2-aa03-fe43796161a8"
+                    value="1.0"/>
+              </ownedPropertyValueGroups>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+                  id="3a56615f-0637-4c97-800b-a61bba48775d" name="PP 1"/>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+                  id="a5f2bced-fc79-40cd-8e0a-44f867ba8697" name="PP 2"/>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+                  id="3f92f7be-e061-43e0-8d62-60bd4ecc97bc" name="PP 3"/>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+                  id="a19d1666-43b2-41e4-a6f3-221d17556bf5" name="PP 4"/>
+            </ownedPhysicalComponents>
+            <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
+                id="3097ff1c-f9b4-4222-9c03-b4c5935fe806" appliedPropertyValueGroups="#7fbf282e-a158-43dc-b1c1-5c2f1ae46a0b #26e8f991-8fe4-40f6-894c-0b83ae98cb7c"
+                name="PCDU" nature="NODE">
+              <ownedPropertyValueGroups xsi:type="org.polarsys.capella.core.data.capellacore:PropertyValueGroup"
+                  id="7fbf282e-a158-43dc-b1c1-5c2f1ae46a0b" name="Mass.MassExtension"
+                  appliedPropertyValueGroups="#2e3f5951-b3f0-4a50-83cd-80b9e4f7bd5e">
+                <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:FloatPropertyValue"
+                    id="e40ec8da-cdc7-4a1f-9b1f-6c6dbcb5ec61" name="Mass" appliedPropertyValues="#14c54444-fde8-481f-a49b-2f1cd3db772c"
+                    value="1.0"/>
+              </ownedPropertyValueGroups>
+              <ownedPropertyValueGroups xsi:type="org.polarsys.capella.core.data.capellacore:PropertyValueGroup"
+                  id="26e8f991-8fe4-40f6-894c-0b83ae98cb7c" name="Power.PowerExtension"
+                  appliedPropertyValueGroups="#175e7649-847c-4cba-ace9-f76f7cb413d4">
+                <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:FloatPropertyValue"
+                    id="3726d9e0-d809-46a0-a621-adfe45c15767" name="Capacity" appliedPropertyValues="#c6e579ca-ef68-4d9e-91d7-b02ab431aab8"
+                    value="1.0"/>
+                <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:FloatPropertyValue"
+                    id="1f735e5e-39c1-45f8-9fbb-d54ffae695f4" name="AOP" appliedPropertyValues="#e06a96af-69a5-4ea2-aa03-fe43796161a8"
+                    value="1.0"/>
+              </ownedPropertyValueGroups>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="1e88d3da-7269-49a7-a795-e2abbe700e83"
+                  name="MPPTs" abstractType="#bd1c2edc-9af8-4a07-b6ab-1055a68421a7">
+                <ownedDeploymentLinks xsi:type="org.polarsys.capella.core.data.pa.deployment:PartDeploymentLink"
+                    id="60e8d387-65af-4024-b0b2-f7e7a9e2c267" deployedElement="#0ac02e5d-7b48-4a96-8199-50e707627233"
+                    location="#1e88d3da-7269-49a7-a795-e2abbe700e83"/>
+              </ownedFeatures>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+                  id="15eed44a-ec30-46ac-b5e8-b496b6170a8c" name="PP 2"/>
+              <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
+                  id="bd1c2edc-9af8-4a07-b6ab-1055a68421a7" name="MPPTs" nature="NODE">
+                <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+                    id="b8b480c8-5c4c-4f35-9ce3-47b6517a5c70" name="PP 1"/>
+                <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+                    id="0a39e3ea-d002-4731-83ef-ffd2ba5561c2" name="PP 2"/>
+              </ownedPhysicalComponents>
+            </ownedPhysicalComponents>
+            <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
+                id="81c4cde7-96c0-47b5-93a4-1d5bc4678604" appliedPropertyValueGroups="#e40d8f1e-fc5b-495d-9190-071588fff1c9 #7c557494-e38f-4adc-b9bf-5f2455ef43a9"
+                name="Batteries" nature="NODE">
+              <ownedPropertyValueGroups xsi:type="org.polarsys.capella.core.data.capellacore:PropertyValueGroup"
+                  id="e40d8f1e-fc5b-495d-9190-071588fff1c9" name="Mass.MassExtension"
+                  appliedPropertyValueGroups="#2e3f5951-b3f0-4a50-83cd-80b9e4f7bd5e">
+                <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:FloatPropertyValue"
+                    id="4c71d00a-4078-4bb5-af0c-1f0281976bb2" name="Mass" appliedPropertyValues="#14c54444-fde8-481f-a49b-2f1cd3db772c"
+                    value="30.0"/>
+              </ownedPropertyValueGroups>
+              <ownedPropertyValueGroups xsi:type="org.polarsys.capella.core.data.capellacore:PropertyValueGroup"
+                  id="7c557494-e38f-4adc-b9bf-5f2455ef43a9" name="Power.PowerExtension"
+                  appliedPropertyValueGroups="#175e7649-847c-4cba-ace9-f76f7cb413d4">
+                <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:FloatPropertyValue"
+                    id="aecfd869-8066-4e15-9246-5af2119d43f6" name="Capacity" appliedPropertyValues="#c6e579ca-ef68-4d9e-91d7-b02ab431aab8"
+                    value="4000.0"/>
+                <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:FloatPropertyValue"
+                    id="b6fcd93d-010a-46e2-8a39-f8c5e5fcd1b8" name="AOP" appliedPropertyValues="#e06a96af-69a5-4ea2-aa03-fe43796161a8"
+                    value="1.0"/>
+              </ownedPropertyValueGroups>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+                  id="c29a90a4-6f9e-4418-9ce7-0f699313c057" name="PP 1">
+                <ownedComponentPortAllocations xsi:type="org.polarsys.capella.core.data.fa:ComponentPortAllocation"
+                    id="c4cf6714-3167-4cc9-a636-29ba41bcf7dc" targetElement="#11aff098-fd24-4cc0-8a4f-fa108815d108"
+                    sourceElement="#c29a90a4-6f9e-4418-9ce7-0f699313c057"/>
+              </ownedFeatures>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+                  id="47c3251e-45c0-4d3c-b6da-c0b93ec82f80" name="PP 2"/>
+            </ownedPhysicalComponents>
+            <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
+                id="1d25f4a6-0260-4ecc-b1fc-8046bfa90217" appliedPropertyValueGroups="#022cad03-ba10-4a5e-aa05-979b1000b620 #272a54fe-ac51-4090-8562-be2829cd886c"
+                name="SADM" nature="NODE">
+              <ownedPropertyValueGroups xsi:type="org.polarsys.capella.core.data.capellacore:PropertyValueGroup"
+                  id="022cad03-ba10-4a5e-aa05-979b1000b620" name="Mass.MassExtension"
+                  appliedPropertyValueGroups="#2e3f5951-b3f0-4a50-83cd-80b9e4f7bd5e">
+                <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:FloatPropertyValue"
+                    id="032beaba-c2b1-4594-9e69-63e2512d2e29" name="Mass" appliedPropertyValues="#14c54444-fde8-481f-a49b-2f1cd3db772c"
+                    value="1.0"/>
+              </ownedPropertyValueGroups>
+              <ownedPropertyValueGroups xsi:type="org.polarsys.capella.core.data.capellacore:PropertyValueGroup"
+                  id="272a54fe-ac51-4090-8562-be2829cd886c" name="Power.PowerExtension"
+                  appliedPropertyValueGroups="#175e7649-847c-4cba-ace9-f76f7cb413d4">
+                <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:FloatPropertyValue"
+                    id="f5f2fb89-d200-4832-a672-d458b1e252ad" name="Capacity" appliedPropertyValues="#c6e579ca-ef68-4d9e-91d7-b02ab431aab8"
+                    value="1.0"/>
+                <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:FloatPropertyValue"
+                    id="d65e82d0-80d3-4af3-b068-d1e61c236439" name="AOP" appliedPropertyValues="#e06a96af-69a5-4ea2-aa03-fe43796161a8"
+                    value="1.0"/>
+              </ownedPropertyValueGroups>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+                  id="d141e794-62da-4d12-822e-fc7050d3d20b" name="PP 1"/>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+                  id="70629815-9fb9-4361-87bb-330e7eac5020" name="PP 2"/>
+              <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+                  id="f705568c-565b-4f31-9980-32af965e11ba" name="PP 3"/>
             </ownedPhysicalComponents>
           </ownedPhysicalComponents>
           <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
-              id="08798d8c-265b-4124-bce6-64948850f938" name="PC 2" nature="NODE"/>
+              id="fed9de7d-629d-4eab-ab68-b38e7cb74494" appliedPropertyValueGroups="#1876aa3b-4a7f-4086-b4a2-8afad5c0ac72 #62f18dfc-c8f8-4a58-9c47-b101284b70d0"
+              name="Electrical BUS" nature="NODE">
+            <ownedPropertyValueGroups xsi:type="org.polarsys.capella.core.data.capellacore:PropertyValueGroup"
+                id="1876aa3b-4a7f-4086-b4a2-8afad5c0ac72" name="Mass.MassExtension"
+                appliedPropertyValueGroups="#2e3f5951-b3f0-4a50-83cd-80b9e4f7bd5e">
+              <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:FloatPropertyValue"
+                  id="3a41f025-b5dd-41b7-80d1-cf422f22cbad" name="Mass" appliedPropertyValues="#14c54444-fde8-481f-a49b-2f1cd3db772c"
+                  value="1.0"/>
+            </ownedPropertyValueGroups>
+            <ownedPropertyValueGroups xsi:type="org.polarsys.capella.core.data.capellacore:PropertyValueGroup"
+                id="62f18dfc-c8f8-4a58-9c47-b101284b70d0" name="Power.PowerExtension"
+                appliedPropertyValueGroups="#175e7649-847c-4cba-ace9-f76f7cb413d4">
+              <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:FloatPropertyValue"
+                  id="4148dc9f-9d40-4c4b-b564-38ff78e5d6ac" name="Capacity" appliedPropertyValues="#c6e579ca-ef68-4d9e-91d7-b02ab431aab8"
+                  value="1.0"/>
+              <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:FloatPropertyValue"
+                  id="4a34c5cf-76d8-428d-968b-fe374005334e" name="AOP" appliedPropertyValues="#e06a96af-69a5-4ea2-aa03-fe43796161a8"
+                  value="1.0"/>
+            </ownedPropertyValueGroups>
+            <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+                id="f3d63d0e-c224-4cb3-964e-1d657bc1eb94" name="PP 1"/>
+            <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+                id="42f6620d-e72a-45c8-90ad-4757d1162be9" name="PP 2"/>
+            <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+                id="c5e921a4-0ebe-4ebd-8910-009974fb3594" name="PP 3"/>
+          </ownedPhysicalComponents>
+          <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
+              id="0cc29f9c-d9c9-440b-a22e-9bfa7490ce08" appliedPropertyValueGroups="#b3ace3b0-aa69-472a-bcbf-376c8879b99d #aedb9deb-3766-47e7-ba9c-4ae2b638e7f0"
+              name="Power storage" nature="BEHAVIOR">
+            <ownedPropertyValueGroups xsi:type="org.polarsys.capella.core.data.capellacore:PropertyValueGroup"
+                id="b3ace3b0-aa69-472a-bcbf-376c8879b99d" name="Mass.MassExtension"
+                appliedPropertyValueGroups="#2e3f5951-b3f0-4a50-83cd-80b9e4f7bd5e">
+              <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:FloatPropertyValue"
+                  id="530359bb-cdcf-48c9-ad37-14d5c7273197" name="Mass" appliedPropertyValues="#14c54444-fde8-481f-a49b-2f1cd3db772c"
+                  value="1.0"/>
+            </ownedPropertyValueGroups>
+            <ownedPropertyValueGroups xsi:type="org.polarsys.capella.core.data.capellacore:PropertyValueGroup"
+                id="aedb9deb-3766-47e7-ba9c-4ae2b638e7f0" name="Power.PowerExtension"
+                appliedPropertyValueGroups="#175e7649-847c-4cba-ace9-f76f7cb413d4">
+              <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:FloatPropertyValue"
+                  id="679ccba9-2f2c-4212-a3d1-61d738c7c4bc" name="Capacity" appliedPropertyValues="#c6e579ca-ef68-4d9e-91d7-b02ab431aab8"
+                  value="1.0"/>
+              <ownedPropertyValues xsi:type="org.polarsys.capella.core.data.capellacore:FloatPropertyValue"
+                  id="70d999d1-5de7-4b9f-ab30-a0796f8feb9a" name="AOP" appliedPropertyValues="#e06a96af-69a5-4ea2-aa03-fe43796161a8"
+                  value="1.0"/>
+            </ownedPropertyValueGroups>
+            <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
+                id="f32881ad-8e5f-438a-9093-3a2e23eabe02" targetElement="#cb2337d7-012c-4f68-951f-074d04259ab9"
+                sourceElement="#0cc29f9c-d9c9-440b-a22e-9bfa7490ce08"/>
+            <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                id="11aff098-fd24-4cc0-8a4f-fa108815d108" name="CP 1" orientation="OUT"
+                kind="FLOW">
+              <ownedPortAllocations xsi:type="org.polarsys.capella.core.data.information:PortAllocation"
+                  id="c61b5b73-6908-4d6d-83ea-9a14540437ae" targetElement="#3500a010-a034-40eb-912a-140c5be69a51"
+                  sourceElement="#11aff098-fd24-4cc0-8a4f-fa108815d108"/>
+            </ownedFeatures>
+          </ownedPhysicalComponents>
+          <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
+              id="0d5ba57e-dca9-4ec7-9bca-c0410c6aedfe" name="Power conditioning"
+              nature="BEHAVIOR"/>
+          <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
+              id="f5c23405-2800-4e00-a34c-923f4607a9e2" name="Power distribution"
+              nature="BEHAVIOR"/>
+          <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
+              id="19eb16b0-efed-4ed8-badd-55b440bfe685" name="Payload" nature="NODE">
+            <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+                id="4fd4c348-d484-484d-aa95-66342d6ed5e4" name="PP 1">
+              <ownedComponentPortAllocations xsi:type="org.polarsys.capella.core.data.fa:ComponentPortAllocation"
+                  id="cd3b6423-ecae-4713-9d3a-14ba351af3dd" targetElement="#add56209-b195-427d-bfb4-522ef5d825bd"
+                  sourceElement="#4fd4c348-d484-484d-aa95-66342d6ed5e4"/>
+            </ownedFeatures>
+            <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:Part" id="bbdf7044-822a-434e-a557-dd7b1b750caa"
+                name="PLPC" abstractType="#db42737f-eaed-49ab-9c57-4df020aed6e9">
+              <ownedDeploymentLinks xsi:type="org.polarsys.capella.core.data.pa.deployment:PartDeploymentLink"
+                  id="5288ebca-f09f-4540-a30c-ec1d4e573d99" deployedElement="#4484d46e-2ee9-4b33-bf11-f3acc4e380c8"
+                  location="#bbdf7044-822a-434e-a557-dd7b1b750caa"/>
+            </ownedFeatures>
+            <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
+                id="db42737f-eaed-49ab-9c57-4df020aed6e9" name="PLPC" nature="NODE"/>
+          </ownedPhysicalComponents>
+          <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
+              id="59b9fef2-f272-4af7-8284-39e6c3f13b6c" name="AOCS" nature="NODE"/>
+          <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
+              id="28926a1e-e3c5-40b9-8953-850383143643" name="Power generation" nature="BEHAVIOR"/>
+          <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
+              id="2798b87f-d728-44d1-91f2-42ef1aa0ce4c" name="PL Power conditioning"
+              nature="BEHAVIOR">
+            <ownedFunctionalAllocation xsi:type="org.polarsys.capella.core.data.fa:ComponentFunctionalAllocation"
+                id="337e6e36-957c-456f-899a-94296762e24c" targetElement="#f6134e43-2d10-457b-91a7-0972ca1f42c2"
+                sourceElement="#2798b87f-d728-44d1-91f2-42ef1aa0ce4c"/>
+            <ownedFeatures xsi:type="org.polarsys.capella.core.data.fa:ComponentPort"
+                id="add56209-b195-427d-bfb4-522ef5d825bd" name="CP 1" orientation="IN"
+                kind="FLOW">
+              <ownedPortAllocations xsi:type="org.polarsys.capella.core.data.information:PortAllocation"
+                  id="63445bfc-ed15-4a68-9230-05842b7d4f59" targetElement="#952e27e8-a797-4658-973a-917b47e89117"
+                  sourceElement="#add56209-b195-427d-bfb4-522ef5d825bd"/>
+            </ownedFeatures>
+          </ownedPhysicalComponents>
+        </ownedPhysicalComponents>
+        <ownedPhysicalComponents xsi:type="org.polarsys.capella.core.data.pa:PhysicalComponent"
+            id="859c82a7-22f1-414f-a203-8a640d64f171" name="vLEO Environment" actor="true"
+            nature="NODE">
+          <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+              id="9e28f1ff-abc2-4f48-b3aa-fd45d1f5769f" name="PP 1"/>
+          <ownedFeatures xsi:type="org.polarsys.capella.core.data.cs:PhysicalPort"
+              id="64cb9621-1df7-4f74-89c7-3d7249fe46e4" name="PP 2"/>
         </ownedPhysicalComponents>
       </ownedPhysicalComponentPkg>
       <ownedLogicalArchitectureRealizations xsi:type="org.polarsys.capella.core.data.pa:LogicalArchitectureRealization"
